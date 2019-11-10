@@ -1,3 +1,42 @@
+/*1) Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+
+поле, хранящее радиус окружности;
+get-свойство, возвращающее радиус окружности;
+set-свойство, устанавливающее радиус окружности;
+get-свойство, возвращающее диаметр окружности;
+метод, вычисляющий площадь окружности;
+метод, вычисляющий длину окружности.
+Продемонстрировать работу свойств и методов. */
+
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+  set radius(value) {
+    //какой синтаксис лучше использовать?Это одно и то же? если слитно, то функция? Для чего???
+    this._radius = value;
+  }
+  get radius() {
+    return this._radius;
+  }
+  get diametr() {
+    //если геттер без сеттера, то свойство защищенное (доступно только внутри класса и для дочерних классов)?
+    return this._radius * 2;
+  }
+  area () {
+    let area =  (Math.PI * this._radius ** 2).toFixed(2);
+    return area;
+  }
+  circuit () {
+    let circuit =  (Math.PI * this._radius * 2).toFixed(2);
+    return circuit;
+  }
+}
+
+let circle = new Circle(10);
+console.log(circle);
+console.log(circle.area());
+console.log(circle.circuit());
 /*2) Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
 
 поле, которое хранит цвет маркера;
@@ -8,8 +47,8 @@
 
 Продемонстрировать работу написанных методов. */
 
-class Marker {
-  constructor(_color, _ink) {
+/*class Marker {
+  constructor(_color, _ink) {//где правильно начинать наименование с _? this._color - защищенное?
     this.color = _color;
     this.ink = _ink;
   }
@@ -62,3 +101,4 @@ class FillMarker extends Marker {
 let pinkMarker = new FillMarker("pink", 0.2, 0.1);
 console.log(pinkMarker);
 pinkMarker.print("В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum");
+*/
